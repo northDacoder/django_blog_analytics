@@ -14,3 +14,13 @@ def post(request, pk):
     return render(request, 'post.html', {
         'post': post_obj
     })
+
+
+def tag(request, tag_name):
+    tags = Post.objects.filter(tags_name=tag_name)
+    return render(request, 'blog.html', {"posts": tags})
+
+
+
+# def posts_by_tag(request, tag_pk):
+#

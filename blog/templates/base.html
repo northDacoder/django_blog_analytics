@@ -6,49 +6,49 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>My Blog</title>
-
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+        <style type="text/css">
+            body {background: #eee;}
+            a {text-decoration: none; color: #333;}
+        </style>
     </head>
     <body>
         <div class="container">
             <div class="header">
                 <ul class="nav nav-pills pull-right">
-                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'home' %}"><i class="fa fa-home"></i> Home</a></li>
                     <li><a href="{% url 'about' %}">About</a></li>
                     <li><a href="{% url 'blog' %}">Blog</a></li>
                 </ul>
-                <h3 class="text-muted">My Blog</h3>
+                <h3 class="text-muted">Blahhhhg </h3>
             </div>
 
-            <hr>
-
             <div class="row">
-                <div class="col-md-10">
+                <div class="col-sm-10">
                     {% block main %}{% endblock main %}
                 </div>
 
-                <div class="col-md-2">
-                    <div>Blog tags go here!</div>
+                <div class="col-sm-2">
+                    <h3 class="text-center">My Tags</h3>
+                    <h4>{{ tag_objects.name }}</h4>
+                    <a href="{% url "tag" tag_objects.name %}"><span class="label" style="background: #333; padding: 7px;"><em>{{ tag_objects.name }}</em></span></a>
                 </div>
             </div>
 
-            <hr>
 
             <div class="row">
-                <div class="col-md-6 well">
-                    <h3>Checkout our latest post!</h3>
+                <div class="col-sm-6 well">
+                    <h3>Latest posts</h3>
                     <h4>{{ latest_post.title }}</h4>
                     <div>by {{ latest_post.author }} on {{ latest_post.created }}</div>
-                    <a href="{% url "post" latest_post.pk %}">Read it!</a>
+                    <a href="{% url "post" latest_post.pk %}"><span class="label" style="background: #333; padding: 7px;"><em>{{ latest_post.title }}</em></span></a>
                 </div>
             </div>
 
-            <hr>
-
-            <div class="footer">
-                <p>&copy; My Blog 2014</p>
-
-                <div class="pull-right">Welcome user from {{ location.city }}!</div>
+            <div class="footer" style="position: absolute; bottom: 30px;">
+                <div class="text-left"><h3>Welcome user from: <span class="label label-info"><i class="fa fa-map-marker"></i> {{ location.city }}!</span></h3></div>
+                <p class="lead text-left">&copy; My Blog 2014</p>
             </div>
         </div>
     </body>

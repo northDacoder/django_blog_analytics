@@ -49,7 +49,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'analytics.middleware.LocationMiddleware',
-    'analytics.middleware.PageViewMiddleware'
+    'analytics.middleware.PageViewMiddleware',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
