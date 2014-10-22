@@ -7,8 +7,13 @@ def latest_post(request):
     }
 
 
+#
+# def tag_objects(request, tag):
+#     return {
+#         'tag_objects': Tag.posts_set.filter(tags_name=tag)
+#     }
 
-def tag_objects(request, tag):
+def tag_objects(request):
     return {
-        'tag_objects': Tag.posts_set.filter(tags_name=tag)
+        'tag_objects': Tag.objects.all()
     }

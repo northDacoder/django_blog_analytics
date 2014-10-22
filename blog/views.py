@@ -15,10 +15,10 @@ def post(request, pk):
         'post': post_obj
     })
 
-
-def tag(request, tag_name):
-    tags = Post.objects.filter(tags_name=tag_name)
-    return render(request, 'blog.html', {"posts": tags})
+#
+# def tag(request, tag_name):
+#     tags = Post.objects.filter(tag=tag_name)
+#     return render(request, 'blog.html', {"posts": tags})
 
 
 
